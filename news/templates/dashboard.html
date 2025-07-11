@@ -1,0 +1,30 @@
+{% extends "base_dashboard.html" %}
+{% block content %}
+    <h2>Dashboard</h2>
+    <p>You can now manage news posts and view reports here.</p>
+
+    <div class="mt-4">
+        <h5>Latest News Posts</h5>
+        <table class="table table-striped mt-2">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Posted On</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Sample row -->
+                <tr>
+                    <td>Notice about Holiday</td>
+                    <td>2025-07-10</td>
+                    <td>
+                        <a href="#" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+                <!-- Add more rows dynamically -->
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
