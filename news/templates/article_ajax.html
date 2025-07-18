@@ -1,0 +1,37 @@
+<!-- article_ajax.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>College News Portal</title>
+</head>
+<body>
+  <h1>Latest News</h1>
+  <div id="articles">
+    <p>Loading...</p>
+  </div>
+
+  <script>
+    fetch('/api/articles/')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('articles');
+        container.innerHTML = "";  // Clear loading text
+
+        data.forEach(article => {
+          container.innerHTML += `
+            <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
+              <h3>${article.title}</h3>
+              <p>${article.summary || article.content?.slice(0, 100) + '...'}</p>
+            </div>
+          `;
+        });
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+        document.getElementById('articles').innerHTML = '<p>Failed to load articles.</p>';
+      });
+  </script>
+</body>
+</html>

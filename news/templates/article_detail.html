@@ -1,0 +1,28 @@
+<!--article_deatil.html-->
+{% extends "base_home.html" %}
+
+{% block content %}
+
+<h1>{{ article.title }}</h1>
+
+<p>
+    <strong>By:</strong> {{article.author.username}}
+    <strong>{{article.category}}</strong> {{article.category.name}}
+
+
+</p>
+
+<img src="{{ article.image.url}}" alt="{{article.title}}"
+style="max-width:100%; height: auto" />
+
+<p> {{article.content | linebreaks }}</p>
+
+<p><small>Published: {{article.published_at}}</small></p>
+
+{% if request.user == article.author or request.user.is_staff %}
+    <a href="{% url 'article-edit' slug=article.slug %}" class="btn btn-warning btn-sm">Edit</a>
+
+    <a href="{% url 'article-delete' slug=article.slug %}" class="btn btn-danger btn-sm">Delete</a>
+{% endif %}
+
+{% endblock %}

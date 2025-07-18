@@ -1,30 +1,38 @@
-{% extends "base_dashboard.html" %}
-{% block content %}
-    <h2>Dashboard</h2>
-    <p>You can now manage news posts and view reports here.</p>
+{% extends 'base_dashboard.html'%}
+{%block content%}
+<div class="container mt -4">
+  <h2 class="mb-4">Dashboard Overview </h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm h -100">
+        <div class="card-body">
+          <h5 class="card-title text-primary">Articles</h5>
+          <p class="display-5 fw-bold">{{article_count}}</p>
+          <p class ="text-muted mb-0">Total articles published</p>
+        </div>
+      </div>
 
-    <div class="mt-4">
-        <h5>Latest News Posts</h5>
-        <table class="table table-striped mt-2">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Posted On</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Sample row -->
-                <tr>
-                    <td>Notice about Holiday</td>
-                    <td>2025-07-10</td>
-                    <td>
-                        <a href="#" class="btn btn-sm btn-warning">Edit</a>
-                        <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                    </td>
-                </tr>
-                <!-- Add more rows dynamically -->
-            </tbody>
-        </table>
     </div>
+  </div>
+
+</div>
+<div class="col-md-4">
+  <div class="card border-0 shadow-sm h-100">
+    <div class="card-body">
+      <h5 class="card-title text-success">Categories</h5>
+      <p class="display-5 fw-bold">{{category_count}}</p>
+       <p class ="text-muted mb-0">Total Category published</p>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="card border-0 shadow-sm h-100">
+    <div class="card-body">
+      <h5 class="card-title text-success">User</h5>
+      <p class="display-5 fw-bold">{{user_count}}</p>
+       <p class ="text-muted mb-0">Registered users</p>
+    </div>
+  </div>
+</div>
 {% endblock %}
